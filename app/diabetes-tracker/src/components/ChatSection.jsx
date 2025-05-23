@@ -28,7 +28,7 @@ export default function ChatSection() {
     setLoading(true);
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/chatapi', {
+      const res = await fetch('https://webapp-diabtrack-1.onrender.com/chatapi', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
