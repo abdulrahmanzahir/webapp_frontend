@@ -54,7 +54,7 @@ export default function SixStepForm() {
     if (step === datasets.length - 1) {
       setLoading(true);
       try {
-        const response = await fetch("http://127.0.0.1:8000/predict-t2d", {
+        const response = await fetch("https://webapp-diabtrack-1.onrender.com/predict-t2d", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -82,7 +82,7 @@ export default function SixStepForm() {
 
   useEffect(() => {
     if (predictionResult && !loading) {
-      fetch("http://127.0.0.1:8000/save-result", {
+      fetch("https://webapp-diabtrack-1.onrender.com/save-result", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
