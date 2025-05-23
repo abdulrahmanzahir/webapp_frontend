@@ -66,7 +66,7 @@ export default function DiabetesTrackerApp() {
       // Comment this out if you implement real authentication
       if (!token) {
         // Simple login to get token for testing
-        const loginResponse = await fetch('http://localhost:8000/token', {
+        const loginResponse = await fetch('https://webapp-diabtrack-1.onrender.com/token', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -102,7 +102,7 @@ export default function DiabetesTrackerApp() {
       };
       
       // Make API request
-      const response = await fetch('http://localhost:8000/chatgpt-predict', {
+      const response = await fetch('https://webapp-diabtrack-1.onrender.com/chatgpt-predict', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
