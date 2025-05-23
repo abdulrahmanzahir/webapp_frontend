@@ -6,7 +6,7 @@ export default function DashboardSection({ scrollToSection }) {
   const [data, setData] = useState({});
 
   const fetchDashboardData = () => {
-    fetch("http://localhost:8000/dashboard-latest")
+    fetch("https://webapp-diabtrack-1.onrender.com/dashboard-latest")
       .then(res => res.json())
       .then(setData)
       .catch(err => {
