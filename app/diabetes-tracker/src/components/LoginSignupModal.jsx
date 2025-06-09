@@ -65,8 +65,7 @@ export default function LoginSignupModal({
         const res = await axiosInstance.post('/token', formData, {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         });
-        console.log("Login response:", res);
-        console.log("Access token:", res.data.access_token);
+ 
         const token = res.data.access_token;
         localStorage.setItem("token", token);
         setIsLoggedIn(true);
