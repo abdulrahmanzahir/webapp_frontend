@@ -17,7 +17,7 @@ export default function ChatPage() {
     setLoading(true);
 
     try {
-      const response = await axios.post("https://webapp-diabtrack-1-dpxw.onrender.com/chatapi", {
+      const response = await axios.post("https://backend-gfgy.onrender.com/chatapi", {
         messages: updatedMessages,
       });
 
@@ -68,3 +68,4 @@ export default function ChatPage() {
     </div>
   );
 }
+
