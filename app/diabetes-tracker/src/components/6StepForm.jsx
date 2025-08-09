@@ -54,7 +54,7 @@ export default function SixStepForm() {
     if (step === datasets.length - 1) {
       setLoading(true);
       try {
-        const response = await fetch("https://webapp-diabtrack-1-dpxw.onrender.com/predict-t2d", {
+        const response = await fetch("https://backend-gfgy.onrender.com/predict-t2d", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -82,7 +82,7 @@ export default function SixStepForm() {
 
   useEffect(() => {
     if (predictionResult && !loading) {
-      fetch("https://webapp-diabtrack-1-dpxw.onrender.com/save-result", {
+      fetch("https://backend-gfgy.onrender.com/save-result", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -249,3 +249,4 @@ export default function SixStepForm() {
     </section>
   );
 }
+
