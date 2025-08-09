@@ -28,7 +28,7 @@ export default function ChatSection() {
     setLoading(true);
 
     try {
-      const res = await fetch('https://webapp-diabtrack-1-dpxw.onrender.com/chatapi', {
+      const res = await fetch('https://backend-gfgy.onrender.com/chatapi', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -100,3 +100,4 @@ export default function ChatSection() {
     </div>
   );
 }
+
