@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://backend-gfgy.onrender.com',
+  baseURL: 'https://webapp-diabtrack-rh8c.onrender.com',
 });
 
 axiosInstance.interceptors.request.use(
@@ -19,4 +19,5 @@ axiosInstance.interceptors.request.use(
 );
 
 export default axiosInstance;
+
 
