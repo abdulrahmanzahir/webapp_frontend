@@ -18,7 +18,7 @@ export default function T2DPrediction() {
     try {
       const combinedData = { ...clinicalData, ...geneticData };
 
-      const response = await fetch("https://backend-gfgy.onrender.com/chatgpt-predict", {
+      const response = await fetch("https://webapp-diabtrack-rh8c.onrender.com/predict-t2d", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(combinedData),
@@ -59,4 +59,5 @@ export default function T2DPrediction() {
     </div>
   );
 }
+
 
