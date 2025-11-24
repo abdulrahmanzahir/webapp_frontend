@@ -67,9 +67,15 @@ export default function LoginSignupModal({
         });
  
         const token = res.data.access_token;
+        const userId = res.data.user_id;
+        const displayName = email.split("@")[0];
+        
         localStorage.setItem("token", token);
-        setIsLoggedIn(true);
-        setUsername(email.split("@")[0]);
+        localStorage.setItem("user_id", userId);
+        localStorage.setItem("username", displayName);
+        
+        setIsLoggedIn(true, token, displayName);
+        setUsername(displayName);
         toggleLoginForm();
       } else {
         await axiosInstance.post('/register', {

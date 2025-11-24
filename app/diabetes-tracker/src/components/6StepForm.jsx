@@ -82,6 +82,7 @@ export default function SixStepForm() {
 
   useEffect(() => {
     if (predictionResult && !loading) {
+      const userId = localStorage.getItem('user_id');
       fetch("https://webapp-diabtrack-rh8c.onrender.com/save-result", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -89,6 +90,7 @@ export default function SixStepForm() {
           formData,
           prediction: predictionResult.prediction,
           confidence: predictionResult.score,
+          user_id: userId ? parseInt(userId) : null,
         }),
       })
         .then((res) => res.json())

@@ -25,9 +25,16 @@ export default function DiabetesTrackerApp() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     const savedUsername = localStorage.getItem('username');
-    if (token) {
+    const userId = localStorage.getItem('user_id');
+    
+    if (token && savedUsername && userId) {
       setIsLoggedIn(true);
-      if (savedUsername) setUsername(savedUsername);
+      setUsername(savedUsername);
+    } else {
+      // Clear invalid data
+      localStorage.removeItem('token');
+      localStorage.removeItem('username');
+      localStorage.removeItem('user_id');
     }
   }, []);
 
@@ -38,6 +45,7 @@ export default function DiabetesTrackerApp() {
     } else {
       localStorage.removeItem('token');
       localStorage.removeItem('username');
+      localStorage.removeItem('user_id');
     }
   }, [isLoggedIn]);
 
@@ -68,6 +76,7 @@ export default function DiabetesTrackerApp() {
                 // clear storage on logout
                 localStorage.removeItem('token');
                 localStorage.removeItem('username');
+                localStorage.removeItem('user_id');
               }
               setIsLoggedIn(flag);
             }}
@@ -120,6 +129,7 @@ export default function DiabetesTrackerApp() {
             if (!flag) {
               localStorage.removeItem('token');
               localStorage.removeItem('username');
+              localStorage.removeItem('user_id');
             }
             setIsLoggedIn(flag);
           }}
