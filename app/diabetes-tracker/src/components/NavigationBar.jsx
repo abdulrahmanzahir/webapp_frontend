@@ -26,14 +26,16 @@ export default function NavigationBar({
   }, []);
 
   return (
-    <nav className="bg-white shadow-md fixed w-full z-50">
+    <nav className="glass-card fixed w-full z-50 border-b border-white/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <Droplet className="h-8 w-8 text-blue-600" />
-            <span className="ml-2 text-xl font-bold text-gray-800">DiabTrack</span>
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-2 rounded-xl shadow-lg">
+              <Droplet className="h-6 w-6 text-white" />
+            </div>
+            <span className="ml-3 text-2xl font-bold gradient-text">DiabTrack</span>
             <div className="hidden md:block ml-10">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
                 {[
                   { id: 'interactiveDashboard', name: 'Dashboard', icon: <BarChart2 className="h-4 w-4 mr-1" /> },
                   { id: 'fusionInput', name: 'Patient Data', icon: <Activity className="h-4 w-4 mr-1" /> },
@@ -42,10 +44,10 @@ export default function NavigationBar({
                   <button
                     key={section.id}
                     onClick={() => scrollToSection(section.id)}
-                    className={`px-3 py-2 text-sm font-medium rounded-md transition duration-300 flex items-center ${
+                    className={`px-4 py-2.5 text-sm font-semibold rounded-xl transition-all duration-300 flex items-center ${
                       activeSection === section.id
-                        ? 'text-blue-600 bg-blue-50'
-                        : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg'
+                        : 'text-gray-700 hover:bg-white/50 hover:text-blue-600'
                     }`}
                   >
                     {section.icon}
@@ -58,14 +60,14 @@ export default function NavigationBar({
 
           <div className="hidden md:block">
             {!isLoggedIn ? (
-              <div className="flex items-center">
+              <div className="flex items-center gap-3">
                 <button
                   onClick={() => {
                     setIsLoginMode(true);
                     setIsForgotPasswordMode(false);
                     setIsLoginFormVisible(true);
                   }}
-                  className="ml-4 px-4 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 transition duration-300"
+                  className="btn-modern px-5 py-2.5 text-sm font-semibold text-blue-600 bg-white/50 border-2 border-blue-600 rounded-xl hover:bg-blue-50 shadow-sm"
                 >
                   Log In
                 </button>
@@ -75,7 +77,7 @@ export default function NavigationBar({
                     setIsForgotPasswordMode(false);
                     setIsLoginFormVisible(true);
                   }}
-                  className="ml-4 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition duration-300"
+                  className="btn-modern px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl hover:from-blue-700 hover:to-indigo-700 shadow-lg"
                 >
                   Sign Up
                 </button>
@@ -84,14 +86,14 @@ export default function NavigationBar({
               <div className="relative">
                 <button
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="w-10 h-10 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center"
+                  className="w-11 h-11 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white font-bold flex items-center justify-center shadow-lg hover:shadow-xl transition-all transform hover:scale-105"
                 >
                   {username.charAt(0).toUpperCase()}
                 </button>
                 {isDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-40 bg-white border rounded-md shadow-lg z-50">
+                  <div className="absolute right-0 mt-3 w-48 glass-card rounded-xl shadow-2xl z-50 overflow-hidden animate-slide-up">
                     <button
-                      className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+                      className="block w-full text-left px-5 py-3 text-gray-700 hover:bg-blue-50 transition-colors font-medium"
                       onClick={() => {
                         navigate('/profile');
                         setIsDropdownOpen(false);
@@ -100,7 +102,7 @@ export default function NavigationBar({
                       Profile
                     </button>
                     <button
-                      className="block w-full text-left px-4 py-2 text-red-600 hover:bg-gray-100"
+                      className="block w-full text-left px-5 py-3 text-red-600 hover:bg-red-50 transition-colors font-medium border-t border-gray-100"
                       onClick={() => {
                         setIsLoggedIn(false);
                         navigate('/');

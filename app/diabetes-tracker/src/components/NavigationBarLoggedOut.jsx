@@ -11,14 +11,16 @@ export default function NavigationBarLoggedOut({
   setIsForgotPasswordMode,
 }) {
   return (
-    <nav className="bg-white shadow-md fixed w-full z-50 py-5">
+    <nav className="glass-card fixed w-full z-50 border-b border-white/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <Droplet className="h-8 w-8 text-blue-600" />
-            <span className="ml-2 text-xl font-bold text-gray-800">DiabTrack</span>
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-600 p-2 rounded-xl shadow-lg">
+              <Droplet className="h-6 w-6 text-white" />
+            </div>
+            <span className="ml-3 text-2xl font-bold gradient-text">DiabTrack</span>
             <div className="hidden md:block ml-10">
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
                 {[
                   { key: 'home', label: 'Home' },
                   { key: 'features', label: 'Services' },
@@ -26,10 +28,10 @@ export default function NavigationBarLoggedOut({
                   <button
                     key={key}
                     onClick={() => scrollToSection(key)}
-                    className={`px-3 py-2 text-lg font-medium rounded-md transition duration-300 ${
+                    className={`px-5 py-2.5 text-base font-semibold rounded-xl transition-all duration-300 ${
                       activeSection === key
-                        ? 'text-blue-600 bg-blue-50'
-                        : 'text-gray-700 hover:text-blue-600 hover:bg-blue-50'
+                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg'
+                        : 'text-gray-700 hover:bg-white/50 hover:text-blue-600'
                     }`}
                   >
                     {label}
@@ -40,14 +42,14 @@ export default function NavigationBarLoggedOut({
           </div>
 
           <div className="hidden md:block">
-            <div className="flex items-center">
+            <div className="flex items-center gap-3">
               <button
                 onClick={() => {
                   setIsLoginMode(true);
                   setIsForgotPasswordMode(false);
                   setIsLoginFormVisible(true);
                 }}
-                className="ml-4 px-4 py-2 text-sm font-medium text-blue-600 border border-blue-600 rounded-md hover:bg-blue-50 transition duration-300"
+                className="btn-modern px-5 py-2.5 text-sm font-semibold text-blue-600 bg-white/50 border-2 border-blue-600 rounded-xl hover:bg-blue-50 shadow-sm"
               >
                 Log In
               </button>
@@ -57,7 +59,7 @@ export default function NavigationBarLoggedOut({
                   setIsForgotPasswordMode(false);
                   setIsLoginFormVisible(true);
                 }}
-                className="ml-4 px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 transition duration-300"
+                className="btn-modern px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl hover:from-blue-700 hover:to-indigo-700 shadow-lg"
               >
                 Sign Up
               </button>
@@ -67,7 +69,7 @@ export default function NavigationBarLoggedOut({
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50 focus:outline-none"
+              className="p-2 rounded-xl text-gray-700 hover:text-blue-600 hover:bg-blue-50 focus:outline-none transition-all"
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
